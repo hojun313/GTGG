@@ -134,7 +134,11 @@ public class GameManager : MonoBehaviour
 
     public void BallLost()
     {
-        currentBall = null;
+        if (currentBall != null) // 현재 공이 존재한다면
+        {
+            Destroy(currentBall); // 해당 공 오브젝트를 파괴합니다.
+            currentBall = null; // 참조 변수를 null로 설정
+        }
     }
 
     void GameOver()
