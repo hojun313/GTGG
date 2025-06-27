@@ -35,6 +35,18 @@ public class BallController : MonoBehaviour
         {
             rb.linearVelocity = rb.linearVelocity.normalized * initialSpeed;
         }
+        if (collision.gameObject.CompareTag("WallBottom"))
+        {
+        // GameManager가 싱글톤으로 제대로 초기화되었는지 확인
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.BallLost(); // 이 부분이 있는지 확인
+            }
+            else
+            {
+                Debug.LogError("GameManager.Instance is null! Cannot call BallLost().");
+            }
+        }
     }
 
     // 추가: 공을 리셋하는 함수 (선택 사항, GameManager에서 사용할 경우)
