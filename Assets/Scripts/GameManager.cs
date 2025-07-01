@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
             if (restartWinButton != null)
 
-                restartWinButton.onClick.AddListener(RestartGame);
+                restartWinButton.onClick.AddListener(GoToStartScene);
 
         }
 
